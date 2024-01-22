@@ -1,0 +1,953 @@
+<?xml version="1.0" ?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="mobile_manip" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="body_color">
+      <visual>
+      <material>
+          <ambient>0.792156862745098 0.819607843137255 0.933333333333333 1</ambient>
+          <diffuse>0.792156862745098 0.819607843137255 0.933333333333333 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="frwheel_color">
+      <visual>
+      <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="brwheel_color">
+      <visual>
+      <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="blwheel_color">
+      <visual>
+      <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="flwheel_color">
+      <visual>
+      <material>
+          <ambient>0.2 0.2 0.2 1</ambient>
+          <diffuse>0.2 0.2 0.2 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="base_arm_color">
+      <visual>
+      <material>
+          <ambient>0.0941 0.6706 0.4980 1</ambient>
+          <diffuse>0.0941 0.6706 0.4980 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="link1_color">
+      <visual>
+      <material>
+          <ambient>0.0941 0.6706 0.4980 1</ambient>
+          <diffuse>0.0941 0.6706 0.4980 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="link2_color">
+      <visual>
+      <material>
+          <ambient>0.0941 0.6706 0.4980 1</ambient>
+          <diffuse>0.0941 0.6706 0.4980 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="link3_color">
+      <visual>
+      <material>
+          <ambient>0.0941 0.6706 0.4980 1</ambient>
+          <diffuse>0.0941 0.6706 0.4980 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  
+  <xacro:macro name="suction_color">
+      <visual>
+      <material>
+          <ambient>0.255 0.213 0.128 1</ambient>
+          <diffuse>0.255 0.213 0.128 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+      </material>
+      </visual>
+  </xacro:macro>
+  # Add this before base link
+  <link name="dummy_link"></link>
+
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.013174336678984 -2.17633575050336E-09 0.0870455763873143"
+        rpy="0 0 0" />
+      <mass
+        value="32.5461542962152" />
+      <inertia
+        ixx="0.463492190555503"
+        ixy="-1.93936130812376E-08"
+        ixz="-0.00903178593568008"
+        iyy="0.834237290117041"
+        iyz="-5.21842055607698E-09"
+        izz="1.14814029854843" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+
+  # Add this after base link
+  <joint name="dummy_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0" />
+      <parent link="dummy_link"/>
+      <child link="base_link"/>
+  </joint>
+  <link name="laser_frame">
+    <visual>
+      <geometry>
+          <cylinder radius="0.03" length="0.12"/>
+      </geometry>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="laser_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="laser_frame"/>
+        <origin xyz= "0.2 0 0.2" rpy="0 0 0"/>
+  </joint>
+
+  <gazebo reference="laser_frame">
+  <gravity>true</gravity>
+  <sensor name="imu_sensor" type="imu">
+    <always_on>true</always_on>
+    <update_rate>100</update_rate>
+    <visualize>true</visualize>
+    <topic>__default_topic__</topic>
+    <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+      <topicName>imu</topicName>
+      <bodyName>base_link</bodyName>
+      <updateRateHZ>10.0</updateRateHZ>
+      <gaussianNoise>0.0</gaussianNoise>
+      <xyzOffset>0 0 0</xyzOffset>
+      <rpyOffset>0 0 0</rpyOffset>
+      <frameName>base_link</frameName>
+      <initialOrientationAsReference>false</initialOrientationAsReference>
+    </plugin>
+    <pose>0 0 0 0 0 0</pose>
+  </sensor>
+  </gazebo>
+
+  <gazebo reference="laser_frame">
+  <sensor name="lidar" type="ray">
+    <pose>0.0 0.0 0.0 0 0 0</pose>
+    <always_on>true</always_on>
+    <visualize>true</visualize>
+    <update_rate>5</update_rate>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1.00000</resolution>
+          <min_angle>0.000000</min_angle>
+          <max_angle>6.280000</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.120000</min>
+        <max>4</max>
+        <resolution>0.015000</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </ray>
+    <plugin name="scan" filename="libgazebo_ros_ray_sensor.so">
+      <ros>
+        <remapping>~/out:=scan</remapping>
+      </ros>
+      <output_type>sensor_msgs/LaserScan</output_type>
+      <frame_name>laser_frame</frame_name>
+    </plugin>
+  </sensor>
+  </gazebo>
+
+
+  <link
+    name="fr_wheel_link">
+    <inertial>
+      <origin
+        xyz="1.46795822768137E-05 -5.2013833787834E-06 0.0507751223652631"
+        rpy="0 0 0" />
+      <mass
+        value="2.00738451500474" />
+      <inertia
+        ixx="0.0077129683034541"
+        ixy="-1.06254497030913E-06"
+        ixz="-5.97464556091312E-08"
+        iyy="0.00771034875024998"
+        iyz="6.62613662638713E-09"
+        izz="0.0135355158684277" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/fr_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/fr_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fr_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.1524 0.2794 0.0889"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fr_wheel_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="12"
+      velocity="12" />
+  </joint>
+  <link
+    name="br_wheel_link">
+    <inertial>
+      <origin
+        xyz="1.38937602216782E-05 -7.03618886440521E-06 0.0507751223652588"
+        rpy="0 0 0" />
+      <mass
+        value="2.00738451500512" />
+      <inertia
+        ixx="0.00771265588410991"
+        ixy="-1.36007189593453E-06"
+        ixz="-5.84082709869567E-08"
+        iyy="0.00771066116958322"
+        iyz="1.42133096427101E-08"
+        izz="0.0135355158684164" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/br_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/br_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="br_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.1524 0.2794 0.0889"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="br_wheel_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="12"
+      velocity="12" />
+  </joint>
+  <link
+    name="bl_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.48237771047388E-05 -4.77495101804115E-06 -0.050775122365263"
+        rpy="0 0 0" />
+      <mass
+        value="2.00738451500474" />
+      <inertia
+        ixx="0.0077130275076627"
+        ixy="9.85092940433789E-07"
+        ixz="-5.99130018858183E-08"
+        iyy="0.00771028954604139"
+        iyz="-4.89661612324004E-09"
+        izz="0.0135355158684277" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/bl_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/bl_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bl_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.1524 -0.2794 0.0889"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="bl_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="12"
+      velocity="12" />
+  </joint>
+  <link
+    name="fl_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.26403967579958E-05 -9.09752126641156E-06 -0.0507751223652589"
+        rpy="0 0 0" />
+      <mass
+        value="2.00738451500609" />
+      <inertia
+        ixx="0.00771219324820219"
+        ixy="1.59955940323993E-06"
+        ixz="-5.55123957864941E-08"
+        iyy="0.00771112380549709"
+        iyz="-2.3063354782184E-08"
+        izz="0.0135355158684218" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/fl_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.2 0.2 0.2 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/fl_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fl_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.1524 -0.2794 0.0889"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="fl_wheel_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="12"
+      velocity="12" />
+  </joint>
+  <link
+    name="base_arm_link">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-17 -1.38777878078145E-17 0.0138392328513056"
+        rpy="0 0 0" />
+      <mass
+        value="0.890590697080434" />
+      <inertia
+        ixx="0.00179024878142422"
+        ixy="2.95510178251609E-05"
+        ixz="-1.65596973948845E-19"
+        iyy="0.00170203915881994"
+        iyz="-1.61452648344684E-19"
+        izz="0.00187477236540139" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/base_arm_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0941 0.6706 0.4980 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/base_arm_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_arm_joint"
+    type="revolute">
+    <origin
+      xyz="0 0 0.1778"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="base_arm_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="1000" />
+  </joint>
+  <link
+    name="link1_link">
+    <inertial>
+      <origin
+        xyz="0.0261758251526831 0.102298704750442 0.140347838904677"
+        rpy="0 0 0" />
+      <mass
+        value="1.47060490703815" />
+      <inertia
+        ixx="0.016961127410666"
+        ixy="-0.00289829197081345"
+        ixz="-0.000122507734106125"
+        iyy="0.00637578643004957"
+        iyz="-0.000478761357552717"
+        izz="0.0129058159923818" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/link1_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0941 0.6706 0.4980 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/link1_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link1_joint"
+    type="revolute">
+    <origin
+      xyz="-0.0199494104244183 0.0656143080716115 0.0381000000000033"
+      rpy="1.5707963267949 0 0.295159587889398" />
+    <parent
+      link="base_arm_link" />
+    <child
+      link="link1_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="1000" />
+  </joint>
+  <link
+    name="link2_link">
+    <inertial>
+      <origin
+        xyz="0.000157972169022195 0.0952502551238466 0.0555898299291898"
+        rpy="0 0 0" />
+      <mass
+        value="0.385965013791146" />
+      <inertia
+        ixx="0.00262554563234254"
+        ixy="-3.76717254923786E-06"
+        ixz="-3.89058089694458E-09"
+        iyy="0.000358082257072824"
+        iyz="-1.201650944743E-08"
+        izz="0.0024170210231749" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/link2_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0941 0.6706 0.4980 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/link2_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link2_joint"
+    type="revolute">
+    <origin
+      xyz="0.0472228948924485 0.184554187701001 0"
+      rpy="0 0 0" />
+    <parent
+      link="link1_link" />
+    <child
+      link="link2_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3,14"
+      upper="3.14"
+      effort="1000"
+      velocity="1000" />
+  </joint>
+  <link
+    name="link3_link">
+    <inertial>
+      <origin
+        xyz="0.0371725334936419 0.0379622746552533 0.142857786663477"
+        rpy="0 0 0" />
+      <mass
+        value="1.02787900847343" />
+      <inertia
+        ixx="0.0068353759433914"
+        ixy="-0.00357463573112609"
+        ixz="0.000151470603990453"
+        iyy="0.00668508790919965"
+        iyz="0.000154682011463008"
+        izz="0.00769482037804941" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/link3_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.0941 0.6706 0.4980 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/link3_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link3_joint"
+    type="revolute">
+    <origin
+      xyz="0.000316478712867722 0.190499737115897 0"
+      rpy="0 0 0" />
+    <parent
+      link="link2_link" />
+    <child
+      link="link3_link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="1000"
+      velocity="1000" />
+  </joint>
+  <link
+    name="suction_link">
+    <inertial>
+      <origin
+        xyz="0.0247433465969923 0.0252689217380735 -1.4745670073868E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.317272192916042" />
+      <inertia
+        ixx="0.000435134778620283"
+        ixy="8.90777010557611E-05"
+        ixz="-5.72568346719955E-08"
+        iyy="0.000438879780631664"
+        iyz="5.62902825371822E-08"
+        izz="0.000348149583311609" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/suction_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.255 0.213 0.128 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://mobile_manip/meshes/suction_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="suction_joint"
+    type="revolute">
+    <origin
+      xyz="0.177707829255993 0.181482581591523 0.13715999999998"
+      rpy="0 0 0" />
+    <parent
+      link="link3_link" />
+    <child
+      link="suction_link" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0.0"
+      upper="0.01"
+      effort="1000"
+      velocity="1000" />
+  </joint>
+
+  <gazebo>
+    <plugin name='vacuum_gripper' filename='libgazebo_ros_vacuum_gripper.so'>
+
+      <!-- This part can be commented out if not required -->
+    
+
+      <!-- Link associated with gripper -->
+      <link_name>suction_link</link_name>
+
+      <!-- Max distance to attract entities -->
+      <max_distance>10.0</max_distance>
+
+      <!-- List of entities to be not attracted by the gripper -->
+      <fixed>ground_plane</fixed>
+      <fixed>wall</fixed>
+    </plugin>
+  </gazebo>
+
+
+  <gazebo reference="base_link">
+    <xacro:body_color />
+  </gazebo>
+  <gazebo reference="fr_wheel_link">
+      <xacro:flwheel_color />
+  </gazebo>
+  <gazebo reference="br_wheel_link">
+      <xacro:brwheel_color />
+  </gazebo>
+  <gazebo reference="bl_wheel_link">
+      <xacro:blwheel_color />
+  </gazebo>
+  <gazebo reference="fl_wheel_link">
+      <xacro:flwheel_color />
+  </gazebo>
+  <gazebo reference="base_arm_link">
+      <xacro:base_arm_color />
+  </gazebo>
+  <gazebo reference="link1_link">
+      <xacro:link1_color />
+  </gazebo>
+  <gazebo reference="link2_link">
+      <xacro:link2_color />
+  </gazebo>
+  <gazebo reference="link3_link">
+      <xacro:link3_color />
+  </gazebo>
+  <gazebo reference="suction_link">
+      <xacro:suction_color />
+  </gazebo>
+   <ros2_control name="GazeboSystem" type="system">
+ <hardware>
+     <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+ </hardware>
+ # Velocity Controllers
+
+ <joint name="fr_wheel_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="br_wheel_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="fl_wheel_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="bl_wheel_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+# Position Controller
+ <joint name="base_arm_joint">
+     <command_interface name="position">
+         <param name="min">-3.14</param>
+         <param name="max">3.14</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="base_arm_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+ <joint name="link1_joint">
+     <command_interface name="position">
+         <param name="min">-3.14</param>
+         <param name="max">3.14</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="link1_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+ <joint name="link2_joint">
+     <command_interface name="position">
+         <param name="min">-3.14</param>
+         <param name="max">3.14</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="link2_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+
+ <joint name="link3_joint">
+     <command_interface name="position">
+         <param name="min">-3.14</param>
+         <param name="max">3.14</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+ 
+ <joint name="link3_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+
+ <joint name="suction_joint">
+     <command_interface name="position">
+         <param name="min">0.0</param>
+         <param name="max">0.01</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+ 
+ <joint name="suction_joint">
+     <command_interface name="velocity">
+         <param name="min">-1000.0</param>
+         <param name="max">1000.0</param>
+     </command_interface>
+     <state_interface name="position"/>
+     <state_interface name="velocity"/>
+ </joint>
+ </ros2_control>
+ <gazebo>
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+        <parameters>$(find mobile_manip)/config/control.yaml</parameters>
+    </plugin>
+</gazebo>
+</robot>
